@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Academia Pro - Configuración de Criterios</title>
+
+    <link rel="stylesheet" href="../css/configcriterios.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- BARRA LATERAL -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div>
+                <h2>Academia Pro</h2>
+                <span>Portal Docente</span>
+            </div>
+        </div>
+
+        <div class="perfil-docente">
+
+            <div class="avatar-docente">
+                CR
+            </div>
+
+            <div class="datos-docente">
+                <strong>Prof. Carlos Rivera</strong>
+                <span>Profesor Titular</span>
+            </div>
+
+        </div>
+
+        <nav class="menu">
+
+            <a href="gruposA.html" class="nav-item">
+                <i class="fa-solid fa-users"></i>
+                <span>Gestión de Cursos</span>
+            </a>
+
+            <a href="configcriterios.html" class="nav-item active">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <span>Ingreso de Calificaciones</span>
+            </a>
+
+            <a href="../../html/registro.html" id="btnCerrarSesion" class="nav-item">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Cerrar Sesión</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+
+    <main class="main-content">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div class="buscador">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="globalSearch"
+                    placeholder="Buscar estudiante..."
+                >
+
+            </div>
+
+            <div class="acciones-header">
+
+                <button
+                    class="icon-button"
+                    data-accion="notificaciones"
+                    title="Notificaciones">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="notificacion"></span>
+
+                </button>
+
+                <button
+                    class="icon-button"
+                    data-accion="configuracion"
+                    title="Configuración">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                </button>
+
+                <div class="avatar-header">
+                    CR
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- TITULO -->
+
+        <section class="titulo-pagina">
+
+            <div>
+                <span class="subtitulo">
+                    Gestión académica
+                </span>
+
+                <h1>
+                    Configuración de Criterios y Calificaciones
+                </h1>
+
+                <p>
+                    Configura los criterios de evaluación e ingresa las calificaciones de los estudiantes.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- INFORMACIÓN DE LA ASIGNATURA -->
+
+        <section class="curso-card">
+
+            <div class="curso-info">
+
+                <div class="curso-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+
+                <div>
+
+                    <span class="curso-label">
+                        Asignatura
+                    </span>
+
+                    <h2>
+                        Algoritmos y Estructuras de Datos
+                    </h2>
+
+                    <p>
+                        CS201 · Grupo A · Periodo 2024-1
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="curso-estado">
+                <span class="estado-activo">
+                    Activo
+                </span>
+            </div>
+
+        </section>
+
+
+        <!-- CONFIGURACIÓN DE CRITERIOS -->
+
+        <section class="card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Criterios de Evaluación
+                    </h2>
+
+                    <p>
+                        Define el nombre y porcentaje de cada criterio.
+                    </p>
+
+                </div>
+
+                <div class="total-box">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="totalPorcentaje">
+                        100%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORMULARIO -->
+
+            <form id="formCriterio" class="form-criterio">
+
+                <div class="campo">
+
+                    <label for="nombreCriterio">
+                        Nombre del criterio
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombreCriterio"
+                        placeholder="Ej. Examen Final"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo campo-porcentaje">
+
+                    <label for="porcentajeCriterio">
+                        Porcentaje
+                    </label>
+
+                    <div class="input-porcentaje">
+
+                        <input
+                            type="number"
+                            id="porcentajeCriterio"
+                            min="1"
+                            max="100"
+                            placeholder="20"
+                            required
+                        >
+
+                        <span>%</span>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn-agregar">
+
+                    <i class="fa-solid fa-plus"></i>
+                    Agregar criterio
+
+                </button>
+
+            </form>
+
+
+            <!-- TABLA DE CRITERIOS -->
+
+            <div class="tabla-contenedor">
+
+                <table class="tabla-criterios" id="tablaCriterios">
+
+                    <thead>
+
+                        <tr>
+                            <th>Criterio</th>
+                            <th>Porcentaje</th>
+                            <th>Acción</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tbodyCriterios">
+
+                        <tr>
+                            <td>Tareas y Trabajos</td>
+                            <td>30%</td>
+                            <td>
+                                <button
+                                    class="btn-eliminar"
+                                    type="button"
+                                    title="Eliminar criterio">
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Examen Parcial</td>
+                            <td>30%</td>
+                            <td>
+                                <button
+                                    class="btn-eliminar"
+                                    type="button"
+                                    title="Eliminar criterio">
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Proyecto Final</td>
+                            <td>40%</td>
+                            <td>
+                                <button
+                                    class="btn-eliminar"
+                                    type="button"
+                                    title="Eliminar criterio">
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- CALIFICACIONES -->
+
+        <section class="card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Calificaciones de Estudiantes
+                    </h2>
+
+                    <p>
+                        Ingresa las calificaciones de acuerdo con los criterios configurados.
+                    </p>
+
+                </div>
+
+                <div class="escala">
+                    Escala: <strong>0 - 100</strong>
+                </div>
+
+            </div>
+
+
+            <div class="tabla-contenedor">
+
+                <table class="tabla-notas" id="tablaNotas">
+
+                    <thead id="encabezadoNotas">
+
+                        <tr>
+
+                            <th>ID Estudiante</th>
+                            <th>Nombre</th>
+
+                            <th>
+                                Tareas
+                                <span class="peso-columna">30%</span>
+                            </th>
+
+                            <th>
+                                Parcial
+                                <span class="peso-columna">30%</span>
+                            </th>
+
+                            <th>
+                                Proyecto
+                                <span class="peso-columna">40%</span>
+                            </th>
+
+                            <th>
+                                Promedio Final
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>2024001</td>
+
+                            <td class="nombre-estudiante">
+                                Alvarez, Maria
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="grade-input"
+                                    value="85"
+                                    min="0"
+                                    max="100"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="grade-input"
+                                    value="90"
+                                    min="0"
+                                    max="100"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="grade-input"
+                                    value="95"
+                                    min="0"
+                                    max="100"
+                                >
+                            </td>
+
+                            <td class="promedio-final">
+                                90.5
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2024002</td>
+
+                            <td class="nombre-estudiante">
+                                Gomez, Carlos
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="grade-input"
+                                    value="70"
+                                    min="0"
+                                    max="100"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="grade-input"
+                                    value="65"
+                                    min="0"
+                                    max="100"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="grade-input"
+                                    value="80"
+                                    min="0"
+                                    max="100"
+                                >
+                            </td>
+
+                            <td class="promedio-final">
+                                72.5
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2024003</td>
+
+                            <td class="nombre-estudiante">
+                                Rojas, Luis
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="grade-input"
+                                    value="50"
+                                    min="0"
+                                    max="100"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="grade-input"
+                                    value="55"
+                                    min="0"
+                                    max="100"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="grade-input"
+                                    value="60"
+                                    min="0"
+                                    max="100"
+                                >
+                            </td>
+
+                            <td class="promedio-final">
+                                55.5
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- ACCIONES -->
+
+            <div class="acciones-planilla">
+
+                <button
+                    type="button"
+                    id="btnGuardarBorrador"
+                    class="btn-secundario">
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Guardar borrador
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="btnExportar"
+                    class="btn-secundario">
+
+                    <i class="fa-solid fa-file-export"></i>
+                    Exportar planilla
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="btnEnviar"
+                    class="btn-principal">
+
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Enviar a Coordinación
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ALERTA -->
+
+        <div id="alerta" class="alerta">
+
+            <div class="alerta-contenido">
+
+                <span id="alertaIcono" class="alerta-icono">
+                    ✓
+                </span>
+
+                <div class="alerta-texto">
+
+                    <h3 id="alertaTitulo">
+                        Éxito
+                    </h3>
+
+                    <p id="alertaMensaje">
+                        Operación realizada correctamente.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="cerrarAlerta"
+                    class="cerrar-alerta">
+
+                    ×
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <span>
+                Academia Pro © 2024
+            </span>
+
+            <span>
+                Portal Docente
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- AUTENTICACIÓN GENERAL -->
+
+    <script
+        src="../../js/auth.js"
+        data-rol="docente">
+    </script>
+
+    <!-- JS DE ESTA VISTA -->
+
+    <script
+        src="../js/configcriterios.js"
+        defer>
+    </script>
+
+</body>
+
+</html>
